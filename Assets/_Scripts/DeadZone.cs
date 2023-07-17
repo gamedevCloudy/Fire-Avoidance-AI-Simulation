@@ -6,6 +6,8 @@ public class DeadZone : MonoBehaviour
 {
     [SerializeField] private int speed;
     // Update is called once per frame
+
+    [SerializeField] private GameManager gm;
     void Update()
     {
         if (transform.position.x < -5) //max X position - leaves some space for agents
@@ -22,6 +24,8 @@ public class DeadZone : MonoBehaviour
 
     void Reset()
     {
-        // transform.position = new Vector3(-90f, 0.9f, 0f);
+        gm.SelectFittestAgents();
+        transform.position = new Vector3(-90f, -0.9f, 0f);
+        gm.ReproduceAndMutate();
     }
 }

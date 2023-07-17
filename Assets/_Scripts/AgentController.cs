@@ -5,15 +5,15 @@ using UnityEngine;
 public class AgentController : MonoBehaviour
 {
     [SerializeField] private int speed = 5;
-    private float[] genome;
+    public float[] genome;
     //Genome will define direction: +- Horizontal and Vertical
 
     //health and fitness 
     [SerializeField] private float health = 100f;
     private bool dealDamage = false;
-    [SerializeField] private float fitness = 0f;
+    public float fitness = 0f;
 
-    void Start()
+    void Awake()
     {
         genome = new float[2];
         genome[0] = Random.Range(-1f, 1f);
